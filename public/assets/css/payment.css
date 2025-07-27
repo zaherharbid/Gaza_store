@@ -1,0 +1,232 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Header */
+
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    background-color: #fff;
+  }
+  
+  .back-link {
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .logo {
+    height: 36px;
+  }
+  
+  .icons {
+    display: flex;
+    gap: 16px;
+    font-size: 16px;
+  }
+  .icons a i {
+    color: black;
+  }
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.avatar-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.avatar-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.edit-avatar {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #007bff;
+  color: #fff;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.sidebar nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.sidebar nav ul li {
+  width: 100%;
+  text-align: left;
+}
+
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.sidebar nav ul li a.active,
+.sidebar nav ul li a:hover {
+  background: #007bff;
+  color: white;
+}
+
+.logout {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+}
+
+section {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.payment{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.payment1{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 35%;
+}
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.radio-group img {
+  height: 20px;
+  margin: 0 5px;
+}
+
+.sub-label {
+  font-size: 0.9em;
+  color: gray;
+  margin-left: 30px;
+}
+
+.default-label {
+  color: gray;
+  margin-bottom: 10px;
+}
+
+.form-inline {
+  display: flex;
+  gap: 10px;
+}
+
+.form-inline .form-group {
+  flex: 1;
+}
+
+.checkbox input {
+  margin-right: 10px;
+}
+
+.form-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn-dark {
+  background: #2c3e50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-save {
+  background: #28a745;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  .form-inline {
+    flex-direction: column;
+  }
+}

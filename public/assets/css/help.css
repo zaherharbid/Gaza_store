@@ -1,0 +1,242 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+
+
+/* Header */
+
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    background-color: #fff;
+  }
+  
+  .back-link {
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .logo {
+    height: 36px;
+  }
+  
+  .icons {
+    display: flex;
+    gap: 16px;
+    font-size: 16px;
+  }
+  .icons a i {
+    color: black;
+  }
+
+
+
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.avatar-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.avatar-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.edit-avatar {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #007bff;
+  color: #fff;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.sidebar nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.sidebar nav ul li {
+  width: 100%;
+  text-align: left;
+}
+
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.sidebar nav ul li a.active,
+.sidebar nav ul li a:hover {
+  background: #007bff;
+  color: white;
+}
+
+.logout {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+}
+
+
+/* Help Center */
+.help-center h2 {
+  font-size: 1.6em;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.highlight {
+  color: #00695c;
+  font-weight: bold;
+}
+
+.colorful {
+  background: linear-gradient(to right, #006400, #0000ff, #800080, #b8860b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+.help-center p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+/* Text Input Box */
+.input-box {
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-radius: 14px;
+  position: relative;
+  margin-top: 10px;
+}
+
+.input-box textarea {
+  width: 100%;
+  height: 100px;
+  border: none;
+  resize: none;
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 10px;
+  background: transparent;
+  outline: none;
+}
+
+.input-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.input-tools label {
+  color: #5c5c5c;
+  font-size: 0.95em;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.input-tools i {
+  margin-right: 5px;
+}
+
+.counter {
+  font-size: 0.9em;
+  color: #555;
+  margin-right: auto;
+}
+
+#sendBtn {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#sendBtn i {
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .input-tools {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .counter {
+    margin-right: 0;
+  }
+}

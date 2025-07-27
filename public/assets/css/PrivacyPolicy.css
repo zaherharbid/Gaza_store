@@ -1,0 +1,156 @@
+:root {
+    --green: #19853F;
+    --muted: #6c757d;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --border: #dee2e6;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: white;
+    color: var(--dark);
+    line-height: 1.6;
+  }
+  
+  /* Header */
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .top-bar a{
+    color: #000;
+  }
+  .back-link {
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .logo {
+    height: 36px;
+  }
+  
+  .icons {
+    display: flex;
+    gap: 16px;
+    font-size: 16px;
+  }
+  
+  /* Nav */
+  .nav-bar {
+    background: var(--green);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+  }
+  
+  /* Content */
+  .content {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+ 
+  
+  .content h4 {
+    margin-top: 24px;
+    font-size: 24px;
+  }
+  
+  .content ul {
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+
+  .content ul li{
+    margin-bottom: 16px;
+
+  }
+  
+  
+  /* Footer */
+  footer {
+    background: var(--green);
+    color: white;
+    padding: 40px 20px 20px;
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .footer-link {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 4px 0;
+  }
+  
+  footer h5 {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .newsletter {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .newsletter input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .newsletter button {
+    background: white;
+    color: var(--green);
+    border: none;
+    padding: 0 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .copy-links {
+    text-align: center;
+    font-size: 12px;
+    color: white;
+  }
+  
+  .copy-links a {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  /* Responsive */
+  @media (max-width: 576px) {
+    .top-bar {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .footer-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  
+    .newsletter {
+      flex-direction: column;
+    }
+  
+    .newsletter button {
+      width: 100%;
+    }
+  }
+  
