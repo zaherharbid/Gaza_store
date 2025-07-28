@@ -1,6 +1,6 @@
 @extends('front.layout.master')
 @section('title', 'Homepage | ' . env('APP_NAME'))
-
+<link rel="stylesheet" href="{{ asset('css/CategoryPage.css') }}">
 @section('content')
 
     <h1 class="hero-title">Shirts <span>Category</span></h1>
