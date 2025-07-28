@@ -7,5 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     //
-    protected $guarded= [];
+    protected $guarded = [];
+    function type()
+    {
+        return $this->belongsTo(Type::class)->withDefault();
+    }
+    function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+    function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }
