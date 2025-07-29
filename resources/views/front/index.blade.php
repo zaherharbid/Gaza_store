@@ -1,13 +1,14 @@
 @extends('front.layout.master')
 @section('title', 'Homepage | ' . env('APP_NAME'))
 @section('content')
+    @dump(app()->getLocale())
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>UNIQUE AND RELIABLE<br>SHOPPING.</h1>
-            <p>WE GUARANTEE YOU EXCELLENT QUALITY AND SERVICE.</p>
-            <button class="shop-now">SHOP NOW</button>
-            <p class="style-discover">AND DISCOVER YOUR OWN STYLE!</p>
+            <h1> {{ __('website.hero') }}</h1>
+            <p>{{ __('website.hero_text') }}</p>
+            <button class="shop-now">{{ __('website.hero_btn') }}</button>
+            <p class="style-discover">{{ __('website.hero_discription') }}</p>
         </div>
         <div class="hero-image">
             <img src="{{ asset('assets/img/home.png') }}" alt="Shopping Illustration" />
