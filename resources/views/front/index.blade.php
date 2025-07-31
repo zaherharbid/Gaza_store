@@ -1,7 +1,7 @@
 @extends('front.layout.master')
 @section('title', 'Homepage | ' . env('APP_NAME'))
 @section('content')
-    @dump(app()->getLocale())
+    {{-- @dump(app()->getLocale()) --}}
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
