@@ -12,7 +12,16 @@
             <form action="{{ route('dashboard.types.update', $type->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('put')
-                <x-input name="name" label='Name' placeholder="Enter Type Name" value="{{ $type->name }}" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <x-input name="name_en" label='English Name' placeholder="Enter Type English Name"
+                            value="{{ $type->name_en }}" />
+                    </div>
+                    <div class="col-md-6">
+                        <x-input name="name_ar" label='Arabic Name' placeholder="Enter Type Arabic Name"
+                            value="{{ $type->name_ar }}" />
+                    </div>
+                </div>
                 <x-input name="image" type='file' label='Image' value="{{ $type->image }}" />
                 <button class="btn btn-dark m-3"><i class="fas fa-save"></i> Save</button>
             </form>

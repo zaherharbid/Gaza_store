@@ -11,7 +11,14 @@
         <div class="card_body">
             <form action="{{ route('dashboard.types.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <x-input name="name" label='Name' placeholder="Enter Type Name" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <x-input name="name_en" label='English Name' placeholder="Enter Type Name" />
+                    </div>
+                    <div class="col-md-6">
+                        <x-input name="name_ar" label='Arabic Name' placeholder="Enter Type Name" />
+                    </div>
+                </div>
                 <x-input name="image" type='file' label='Image' />
                 <button class="btn btn-dark m-3"><i class="fas fa-save"></i> Save</button>
             </form>

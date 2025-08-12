@@ -23,14 +23,17 @@ class TypeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:100',
+            'name_en' => 'required|max:100',
+            'name_ar' => 'required|max:100',
             'image' => 'required|image|mimes:jpg,jpeg,png,gif',
         ]);
-
         $path = $request->file('image')->store('uploads', 'public');
 
         Type::create([
-            'name' => $request->name,
+            'name' => [
+                'en' => $request->name_en,
+                'ar' => $request->name_ar,
+            ],
             'image' => $path
         ]);
 
@@ -48,7 +51,8 @@ class TypeController extends Controller
     public function update(Request $request, Type $type)
     {
         $request->validate([
-            'name' => 'required|max:100',
+            'name_en' => 'required|max:100',
+            'name_ar' => 'required|max:100',
             'image' => 'nullable|image|mimes:jpg,jpeg,png,gif',
         ]);
 
@@ -58,7 +62,10 @@ class TypeController extends Controller
         }
 
         $type->update([
-            'name' => $request->name,
+            'name' => [
+                'en' => $request->name_en,
+                'ar' => $request->name_ar,
+            ],
             'image' => $path ?? $type->image
         ]);
 

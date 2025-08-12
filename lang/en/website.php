@@ -7,6 +7,7 @@ return [
     'nav' => [
         'login' => 'Login',
         'sign up' => 'Sign Up',
+        'logout' => 'Logout',
     ],
     'footer' => [
         'copyright' => 'Copyright © 2025. All rights reserved.',

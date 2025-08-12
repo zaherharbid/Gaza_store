@@ -54,8 +54,20 @@
                 <li><a href="profile.html"><i class="fa-regular fa-user"></i></a></li>
             </ul>
             <div class="auth-buttons">
-                <a href="Login.html"><button class="btn-outline">{{ __('website.nav.login') }}</button></a>
-                <a href="SignUp.html"><button class="btn-fill">{{ __('website.nav.sign up') }}</button></a>
+                @if (auth()->check())
+                    <a onclick="event.preventDefault(); document.querySelector('#logout-form').submit()"
+                        href="{{ route('logout') }}"><button
+                            class="btn-outline">{{ __('website.nav.logout') }}</button></a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+
+                    </form>
+                @else
+                    <a href="{{ route('login') }}"><button
+                            class="btn-outline">{{ __('website.nav.login') }}</button></a>
+                @endif
+                <a href="{{ route('register') }}"><button
+                        class="btn-fill">{{ __('website.nav.sign up') }}</button></a>
             </div>
         </div>
     </header>

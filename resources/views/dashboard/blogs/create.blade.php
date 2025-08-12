@@ -11,9 +11,9 @@
         <div class="card_body">
             <form action="{{ route('dashboard.blogs.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                image description
                 <x-input name="title" label='Title' placeholder="Enter Title Name" />
                 <x-input name="image" type='file' label='Image' />
+
                 <x-textarea name='description' label='Description' placeholder="Enter Blog Description" />
 
                 <button class="btn btn-dark m-3"><i class="fas fa-save"></i> Save</button>
