@@ -1,4 +1,4 @@
-@extends('front.layout.master')
+{{-- @extends('front.layout.master')
 @section('title', 'Homepage | ' . env('APP_NAME'))
 @section('content')
     <!-- Product Section -->
@@ -193,4 +193,4 @@
             </div>
         </section>
     </main>
-@endsection
+@endsection --}}

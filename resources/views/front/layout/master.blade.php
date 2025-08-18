@@ -21,6 +21,209 @@
             }
         </style>
     @endif
+    <style>
+        .products {
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .products .section-title {
+            display: block;
+            font-size: 14px;
+            color: #27ae60;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .products h2.section-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .products p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .products-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 230px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            text-align: left;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            object-position: top;
+
+        }
+
+        .product-info {
+            padding: 12px;
+        }
+
+        .product-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .product-title h3 {
+            font-size: 16px;
+            margin: 0;
+            color: #222;
+            font-weight: 600;
+        }
+
+        .fav-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #666;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .fav-btn:hover {
+            color: red;
+            transform: scale(1.2);
+        }
+
+        .fav-btn.liked {
+            color: red;
+        }
+
+        .price {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .current-price {
+            font-size: 15px;
+            font-weight: 700;
+            color: #27ae60;
+        }
+
+        .old-price {
+            font-size: 13px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .review {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .review i {
+            color: gold;
+            margin-right: 4px;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 6px;
+            margin-top: 6px;
+        }
+
+        .card-actions a {
+            text-decoration: none;
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 12px;
+            display: inline-block;
+            transition: background 0.2s ease;
+        }
+
+        .add-to-cart {
+            width: 200px;
+            height: 40px;
+            background: #27ae60;
+            color: #fff;
+            text-align: center;
+            align-content: center;
+            font-size: 14px
+        }
+
+        .add-to-cart:hover {
+            background: #219150;
+        }
+
+        .view-details {
+            background: #f0f0f0;
+            color: #333;
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            align-content: center;
+            font-size: 14px
+        }
+
+        .view-details:hover {
+            background: #e0e0e0;
+        }
+
+        @media (max-width: 768px) {
+            .product-card {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-card {
+                width: 100%;
+            }
+        }
+
+        .product-image img {
+            width: 400px;
+            border-radius: 10px;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            object-position: top;
+        }
+
+        .social-share .social-icon i {
+            font-size: 20px;
+            color: #555;
+            transition: transform 0.2s, color 0.2s;
+        }
+
+        .social-share .social-icon i:hover {
+            color: #27ae60;
+            transform: scale(1.2);
+        }
+    </style>
+
 
     @yield('css')
 </head>
@@ -45,7 +248,9 @@
     <header>
         <div class="nav-wrapper">
             <div class="logo">
-                <img src="{{ asset('assets/img/Rectangle 2.png') }}" alt="Gaza Store" />
+                <a href="{{ route('front.index') }}">
+                    <img src="{{ asset('assets/img/Rectangle 2.png') }}" alt="Gaza Store" />
+                </a>
             </div>
             <ul class="icon-list">
                 <li><a href="Search.html"><i class="fa-solid fa-search"></i></a></li>

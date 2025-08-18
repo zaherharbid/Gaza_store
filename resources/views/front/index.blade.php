@@ -1,5 +1,89 @@
 @extends('front.layout.master')
 @section('title', 'Homepage | ' . env('APP_NAME'))
+
+<style>
+    .types {
+        padding: 40px 20px;
+    }
+
+    .types span.section-title,
+    .types h2.section-title,
+    .types p {
+        text-align: center;
+        display: block;
+        margin: 0 auto 12px;
+    }
+
+    .types span.section-title {
+        font-size: 16px;
+        color: #777;
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+
+    .types h2.section-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 12px;
+    }
+
+    .types p {
+        font-size: 16px;
+        color: #555;
+        max-width: 600px;
+        margin: 0 auto 30px;
+        line-height: 1.5;
+    }
+
+    .types-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .type-card {
+        width: 220px;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+    }
+
+    .type-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .type-card a {
+        display: block;
+        position: relative;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .type-card img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .type-card h2 {
+        position: absolute;
+        bottom: 8px;
+        left: 8px;
+        margin: 0;
+        padding: 4px 10px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 6px;
+        pointer-events: none;
+    }
+</style>
 @section('content')
     {{-- @dump(app()->getLocale()) --}}
     <!-- Hero Section -->
@@ -15,213 +99,24 @@
         </div>
     </section>
 
-    <!-- New Arrivals Section -->
-    <section class="new-arrivals">
-        <h2>New Arrivals</h2>
-        <div class="products-grid">
-            <!-- Card Example -->
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}"> <img src="{{ asset('assets/img/Rectangle 10.png') }}"
-                        alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-            </div>
-            </a>
-
-
+    <section class="types">
+        <span class="section-title">{{ __('website.types_subtitle') }}</span>
+        <h2 class="section-title">{{ __('website.types_title') }}</h2>
+        <p>{{ __('website.types_desc') }}</p>
+        <div class="types-container">
+            @foreach ($types as $type)
+                <div class="type-card">
+                    <a href="{{ route('front.type', $type->id) }}">
+                        <img src="{{ asset('storage/' . $type->image) }}" alt="{{ $type->trans_name }}" />
+                        <h2>{{ $type->trans_name }}</h2>
+                    </a>
+                </div>
+            @endforeach
         </div>
     </section>
 
 
-    <section class="categories-wrapper">
+    {{-- <section class="categories-wrapper">
         <h2 class="categories-title">Categories</h2>
         <div class="categories-grid">
             <a href="{{ route('front.category', 1) }}" class="category-link" style="text-decoration: none;">
@@ -297,474 +192,37 @@
                 </div>
             </a>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Recent Products Carousel -->
     <section class="recent-products">
         <div class="section-header">
-            <h2>Recent</h2>
-            <a href="#" class="view-all">View All</a>
+            <h2>{{ __('website.all_product') }}</h2>
+            <a href="#" class="view-all">{{ __('website.view_all') }}</a>
         </div>
         <div class="carousel-container" id="carousel">
             <!-- Repeat Card -->
-            <div class="product-card">
-                <a href=""{{ route('front.product', 1) }}"">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
+            @foreach ($products as $product)
+                @include('front.products.box')
+            @endforeach
 
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-            </div>
-            </a>
 
         </div>
     </section>
 
+    <!-- Best seller Products Carousel -->
     <section class="recent-products">
         <div class="section-header">
-            <h2>Best Seller</h2>
-            <a href="#" class="view-all">View All</a>
+            <h2>{{ __('website.best_seller') }}</h2>
+            <a href="#" class="view-all">{{ __('website.view_all') }}</a>
         </div>
         <div class="carousel-container" id="carousel">
             <!-- Repeat Card -->
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
+            @foreach ($products as $product)
+                @include('front.products.box')
+            @endforeach
 
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
 
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
-            <div class="product-card">
-                <a href="{{ route('front.product', 1) }}">
-                    <img src="{{ asset('assets/img/Rectangle 10.png') }}" alt="Product" />
-                    <div class="product-info">
-                        <h3>Product Name</h3>
-                        <p>Shirts</p>
-                        <div class="rating">
-                            <span class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </span>
-                            <span>(365)</span>
-                        </div>
-                        <div class="price">
-                            <span class="current-price">120$</span>
-                            <span class="old-price">150$</span>
-                        </div>
-                        <button class="add-to-cart">Add To Cart</button>
-                        <button class="fav-btn">
-                            <i class="far fa-heart"></i>
-                        </button>
-                    </div>
-                </a>
-
-            </div>
         </div>
     </section>
 
@@ -772,16 +230,21 @@
     <section class="about-us">
         <div class="about-content">
             <div class="about-image">
-                <img src="{{ asset('assets/img/aboutUs.png') }}" alt="About Image" />
+                @php
+                    $src = 'assets/img/aboutUs.png';
+                    if (isset($settings['about_image'])) {
+                        $src = 'storage/' . $settings['about_image'];
+                    }
+
+                @endphp
+                <img src="{{ asset($src) }}" alt="About Image" />
             </div>
             <div class="about-text">
-                <h2>About Us</h2>
-                <p>Your ultimate destination for all things men’s clothing!</p>
+                <span class="section-title">{{ $settings['about_subtitle_' . app()->getLocale()] ?? 'About Us' }}</span>
+                <h3>{{ $settings['about_title_' . app()->getLocale()] ?? 'The best fashion and the lowest prices are found here.' }}
+                </h3>
                 <p>
-                    We are a specialized store that offers a variety of fashions that suit all age groups, from young
-                    men to mature men.
-                    We strive to meet the needs of every customer by providing modern and elegant designs that reflect
-                    their unique taste.
+                    {{ $settings['about_desc_' . app()->getLocale()] ?? 'Our store offers the latest fashion trends with high quality and affordable prices, giving you a stylish and unique shopping experience.' }}
                 </p>
             </div>
 
@@ -789,58 +252,55 @@
 
         <div class="about-heading">
             <div class="multi-border">
-                <h3>Why <span>are we the best choice?</span></h3>
+                <h3> <span> {{ __('website.why_are') }}</span></h3>
             </div>
         </div>
 
         <div class="features-grid">
             <div class="feature-box" style="box-shadow: 1px 1px 8px #640020;">
                 <i class="fas fa-tshirt"></i>
-                <h4>Diverse Products</h4>
-                <p>Casual and formal wear to meet all your needs.</p>
+                <h4>{{ __('website.diverse_products') }}</h4>
+                <p>{{ __('website.diverse_products_desc') }}</p>
             </div>
             <div class="feature-box" style="box-shadow: 1px 1px 8px #19853F;">
                 <i class="fas fa-clipboard-check"></i>
-                <h4>High Quality</h4>
-                <p>We select high-quality materials for every clothing piece.</p>
+                <h4>{{ __('website.high_quality') }}</h4>
+                <p>{{ __('website.high_quality_desc') }}</p>
             </div>
             <div class="feature-box" style="box-shadow: 1px 1px 8px #001A72;">
                 <i class="fas fa-thumbs-up"></i>
-                <h4>Honesty and Transparency</h4>
-                <p>Products are as described, no surprises.</p>
+                <h4>{{ __('website.honesty') }}</h4>
+                <p>{{ __('website.honesty_desc') }}</p>
             </div>
             <div class="feature-box" style="box-shadow: 1px 1px 8px #790E79;">
                 <i class="fas fa-tags"></i>
-                <h4>Competitive Prices</h4>
-                <p>Affordable prices for every budget.</p>
+                <h4>{{ __('website.competitive') }}</h4>
+                <p>{{ __('website.competitive_desc') }}</p>
             </div>
             <div class="feature-box" style="box-shadow: 1px 1px 8px #9FB60D;">
                 <i class="fas fa-headphones-alt"></i>
-                <h4>Customer Service</h4>
-                <p>Our team is ready to help you choose wisely.</p>
+                <h4>{{ __('website.customer') }}</h4>
+                <p>{{ __('website.customer_desc') }}</p>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="testimonials">
-        <h2>What Our Customers Say</h2>
+        <span class="section-title">{{ __('website.blogs') }}</span>
+        <h2>{{ __('website.blogs_title') }}</h2>
         <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <h4>Osama M. <span><i class="fas fa-star"></i> (4.5)</span></h4>
-                <p>As a sommelier I was more than happy to discover Fivinun. I just send a message to my account manager
-                    and 9/10 times he finds the bottle I need!</p>
-            </div>
-            <div class="testimonial-card">
-                <h4>Ali SH. <span><i class="fas fa-star"></i> (4.7)</span></h4>
-                <p>As a sommelier I was more than happy to discover Fivinun. I just send a message to my account manager
-                    and 9/10 times he finds the bottle I need!</p>
-            </div>
-            <div class="testimonial-card">
-                <h4>Ahmed F. <span><i class="fas fa-star"></i> (4.8)</span></h4>
-                <p>As a sommelier I was more than happy to discover Fivinun. I just send a message to my account manager
-                    and 9/10 times he finds the bottle I need!</p>
-            </div>
+            @foreach ($blogs as $blog)
+                <div class="testimonial-card">
+                    <img src="{{ asset('storage/' . $blog->image) }}" alt="Blog Imag" />
+                    <span>{{ $blog->created_at->format('M d Y') }}</span>
+                    <h3>{{ $blog->trans_title }}</h3>
+                    <p>{{ Str::words(strip_tags($blog->trans_description), 10, '...') }}</p>
+                    <a href="{{ route('front.blog', $blog->slug) }}" class="blog-btn">{{ __('website.read_more') }} <i
+                            class='bx bx-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }}-arrow-alt'></i></a>
+                </div>
+            @endforeach
+
         </div>
     </section>
 @endsection
