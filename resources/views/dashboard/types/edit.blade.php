@@ -22,6 +22,7 @@
                             value="{{ $type->name_ar }}" />
                     </div>
                 </div>
+
                 <x-input name="image" type='file' label='Image' value="{{ $type->image }}" />
                 <button class="btn btn-dark m-3"><i class="fas fa-save"></i> Save</button>
             </form>

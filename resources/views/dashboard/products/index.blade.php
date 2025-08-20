@@ -39,7 +39,7 @@
                                     alt=""></td>
                             <td>{{ $product->trans_name }}</td>
                             <td>{{ $product->price }}</td>
-                            <td>{{ $product->type_id }}</td>
+                            <td>{{ $product->type->trans_name }}</td>
                             <td>{{ $product->created_at->toDateString() }}</td>
                             <td>
                                 <a class="btn btn-sm btn-primary"

@@ -222,6 +222,124 @@
             color: #27ae60;
             transform: scale(1.2);
         }
+
+        .testimonials {
+            padding: 50px 20px;
+            background: #f9f9f9;
+        }
+
+        .testimonials .section-title {
+            display: block;
+            text-align: center;
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 8px;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            color: #222;
+            color: green;
+            margin-bottom: 12px;
+        }
+
+        .testimonials p {
+            text-align: center;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            justify-items: center;
+        }
+
+        .blog-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            position: relative;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .blog-date {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 4px 8px;
+            font-size: 12px;
+            border-radius: 6px;
+        }
+
+        .blog-content {
+            padding: 15px 20px 20px;
+        }
+
+        .blog-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #222;
+        }
+
+        .blog-content p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .blog-btn {
+            display: inline-block;
+            font-size: 14px;
+            color: #27ae60;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .blog-btn i {
+            margin-left: 4px;
+        }
+
+        .sec-title {
+            display: block;
+            font-size: 14px;
+            color: #27ae60;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 2px solid #27ae60;
+            padding-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .sec-title:hover {
+            color: #2ecc71;
+            border-color: #2ecc71;
+        }
     </style>
 
 

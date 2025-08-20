@@ -101,7 +101,7 @@
 
     <section class="types">
         <span class="section-title">{{ __('website.types_subtitle') }}</span>
-        <h2 class="section-title">{{ __('website.types_title') }}</h2>
+        <h2 class="sec-title">{{ __('website.types_title') }}</h2>
         <p>{{ __('website.types_desc') }}</p>
         <div class="types-container">
             @foreach ($types as $type)
@@ -197,7 +197,7 @@
     <!-- Recent Products Carousel -->
     <section class="recent-products">
         <div class="section-header">
-            <h2>{{ __('website.all_product') }}</h2>
+            <h2 class="sec-title">{{ __('website.all_product') }}</h2>
             <a href="#" class="view-all">{{ __('website.view_all') }}</a>
         </div>
         <div class="carousel-container" id="carousel">
@@ -213,7 +213,7 @@
     <!-- Best seller Products Carousel -->
     <section class="recent-products">
         <div class="section-header">
-            <h2>{{ __('website.best_seller') }}</h2>
+            <h2 class="sec-title">{{ __('website.best_seller') }}</h2>
             <a href="#" class="view-all">{{ __('website.view_all') }}</a>
         </div>
         <div class="carousel-container" id="carousel">
@@ -288,19 +288,26 @@
     <!-- Testimonials Section -->
     <section class="testimonials">
         <span class="section-title">{{ __('website.blogs') }}</span>
-        <h2>{{ __('website.blogs_title') }}</h2>
+        <h2 class="sec-title">{{ __('website.blogs_title') }}</h2>
+        <p>{{ __('website.blogs_desc') }}</p>
         <div class="testimonials-grid">
             @foreach ($blogs as $blog)
-                <div class="testimonial-card">
-                    <img src="{{ asset('storage/' . $blog->image) }}" alt="Blog Imag" />
-                    <span>{{ $blog->created_at->format('M d Y') }}</span>
-                    <h3>{{ $blog->trans_title }}</h3>
-                    <p>{{ Str::words(strip_tags($blog->trans_description), 10, '...') }}</p>
-                    <a href="{{ route('front.blog', $blog->slug) }}" class="blog-btn">{{ __('website.read_more') }} <i
-                            class='bx bx-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }}-arrow-alt'></i></a>
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="{{ asset('storage/' . $blog->image) }}" alt="Blog Image">
+                        <span class="blog-date">{{ $blog->created_at->format('M d, Y') }}</span>
+                    </div>
+                    <div class="blog-content">
+                        <h3>{{ $blog->trans_title }}</h3>
+                        <p>{{ Str::words(strip_tags($blog->trans_description), 15, '...') }}</p>
+                        <a href="{{ route('front.blog', $blog->slug) }}" class="blog-btn">
+                            {{ __('website.read_more') }} <i
+                                class='bx bx-{{ app()->getLocale() == 'ar' ? 'left' : 'right' }}-arrow-alt'></i>
+                        </a>
+                    </div>
                 </div>
             @endforeach
-
         </div>
     </section>
+
 @endsection

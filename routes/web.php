@@ -1,16 +1,20 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\FrontController;
 
 use App\Http\Controllers\ProfileController;
-
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\BlogController;
+use App\Http\Controllers\Dashboard\ProductController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::prefix(LaravelLocalization::setLocale())->group(function () {
     Route::get('/', [FrontController::class, 'index'])->name('front.index');
+    Route::get('/type/{type}', [FrontController::class, 'type'])->name('front.type');
     Route::get('/product/{id}', [FrontController::class, 'product'])->name('front.product');
     Route::get('/category/{id}', [FrontController::class, 'category'])->name('front.category');
+    Route::get('/blog/{blog:slug}', [FrontController::class, 'blog'])->name('front.blog');
 });
 
 Route::get('/dashboard', function () {

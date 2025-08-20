@@ -22,5 +22,45 @@ return [
         'subscribe' => 'Subscribe to our Store',
         'terms&conditions' => 'Terms & Conditions',
         'privacyPolicy' => 'Privacy Policy',
-    ]
+    ],
+    'types_subtitle' => 'All Types',
+    'types_title' => 'We have all types of products',
+    'types_desc' => 'All the types you need to look your best are here.',
+    'products_subtitle' => 'What we offer',
+    'products_title' => 'Our Products',
+    'products_desc' => 'Products for this type',
+    'add_to_card' => 'Add To Cart',
+    'view_details' => 'View Details',
+    'product_name' => 'Product Name:',
+    'product_type' => 'Product Type:',
+    'product_price' => 'Product Price:',
+    'product_description' => 'Product Description:',
+    'product_share' => 'Share with Social Media: ',
+    'ratings&views' => 'Ratings & Reiews',
+    'purchase_button' => 'Add to Cart',
+    'all_product' => 'All Product',
+    'view_all' => 'View All',
+    'best_seller' => 'Best Seller Products',
+    'related' => 'Related Products',
+    'why_are' => 'Why are we the best choice !?',
+    'diverse_products' => 'Diverse Products',
+    'diverse_products_desc' => 'Casual and formal wear to meet all your needs.',
+    'high_quality' => 'High Quality',
+    'high_quality_desc' => 'We select high-quality materials for every clothing piece.',
+    'honesty' => 'Honesty and Transparency',
+    'honesty_desc' => 'Products are as described, no surprises.',
+    'competitive' => 'Competitive Prices',
+    'competitive_desc' => 'Affordable prices for every budget.',
+    'customer' => 'Customer Service',
+    'customer_desc' => 'Our team is ready to help you choose wisely.',
+    'blogs' => 'Blog & News',
+    'blogs_title' => 'Our Blog Content',
+    'blogs_desc' => 'Discover the Latest Fashion Trends of 2025',
+    'read_more' => 'Read More ..'
+
+
+
+
+
+
 ];

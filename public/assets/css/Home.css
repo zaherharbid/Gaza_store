@@ -307,11 +307,10 @@ button.btn-fill {
     align-items: center;
     margin-bottom: 20px;
 }
-
 .section-header h2 {
-    font-size: 24px;
+    text-align: center;
+    align-items: center;
 }
-
 .section-header .view-all {
     font-size: 14px;
     text-decoration: none;
@@ -453,16 +452,6 @@ button.btn-fill {
 }
 
 /* Testimonials */
-.testimonials {
-    padding: 60px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.testimonials h2 {
-    font-size: 26px;
-    margin-bottom: 30px;
-}
 
 .testimonials-grid {
     display: grid;

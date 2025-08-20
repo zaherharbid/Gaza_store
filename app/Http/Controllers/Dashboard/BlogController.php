@@ -24,19 +24,27 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:100|unique:blogs,title',
+            'title_en' => 'required|max:100|unique:blogs,title->en',
+            'title_ar' => 'required|max:100|unique:blogs,title->ar',
             'image' => 'required|image|mimes:jpg,jpeg,png,gif',
-            'description' => 'required|max:100',
+            'description_en' => 'required',
+            'description_ar' => 'required',
 
         ]);
 
         $path = $request->file('image')->store('uploads', 'public');
 
         Blog::create([
-            'title' => $request->title,
-            'slug' => Str::slug($request->title),
+            'title' => [
+                'en' => $request->title_en,
+                'ar' => $request->title_ar,
+            ],
+            'slug' => Str::slug($request->title_en),
             'image' => $path,
-            'description' => $request->description
+            'description' => [
+                'en' => $request->description_en,
+                'ar' => $request->description_ar,
+            ]
         ]);
 
         return redirect()
@@ -53,9 +61,11 @@ class BlogController extends Controller
     public function update(Request $request, Blog $blog)
     {
         $request->validate([
-            'title' => 'required|max:100|unique:blogs,title,' . $blog->id,
+            'title_en' => 'required|max:100|unique:blogs,title->en' . $blog->id,
+            'title_ar' => 'required|max:100|unique:blogs,title->ar' . $blog->id,
             'image' => 'nullable|image|mimes:jpg,jpeg,png,gif',
-            'description' => 'required|max:100',
+            'description_en' => 'required',
+            'description_ar' => 'required',
 
         ]);
 
@@ -65,9 +75,15 @@ class BlogController extends Controller
         }
 
         $blog->update([
-            'title' => $request->title,
+            'title' => [
+                'en' => $request->title_en,
+                'ar' => $request->title_ar,
+            ],
             'image' => $path ?? $blog->image,
-            'description' => $request->description
+            'description' => [
+                'en' => $request->description_en,
+                'ar' => $request->description_ar,
+            ]
         ]);
 
         return redirect()
@@ -88,5 +104,11 @@ class BlogController extends Controller
             ->route('dashboard.blogs.index')
             ->with('msg', 'Blog Deleted Successfully')
             ->with('type', 'danger');
+    }
+    public function show($slug)
+    {
+        $blog = Blog::where('slug', $slug)->first();
+        $blogs = Blog::latest()->take(5)->get();
+        return view('front.blog-show', compact('blog', 'blogs'));
     }
 }

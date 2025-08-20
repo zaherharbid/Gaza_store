@@ -42,6 +42,7 @@ class ProductController extends Controller
             ],
             'image' => $path,
             'price' => $request->price,
+            'sale_price' => $request->sale_price,
             'description' => [
                 'ar' => $request->description_ar,
                 'en' => $request->description_en,
@@ -121,5 +122,10 @@ class ProductController extends Controller
             ->route('dashboard.products.index')
             ->with('msg', 'Product Deleted Successfully')
             ->with('type', 'danger');
+    }
+    public function show($id)
+    {
+        $product = \App\Models\Product::with('type')->findOrFail($id);
+        return view('front.product-details', compact('product'));
     }
 }

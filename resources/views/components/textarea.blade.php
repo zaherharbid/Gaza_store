@@ -1,4 +1,4 @@
-@props(['label', 'rows' => '4', 'name', 'placeholder' => '', 'value' => old($name)])
+@props(['label', 'rows' => '3', 'name', 'placeholder' => '', 'value' => old($name)])
 <div class="mb-3">
     @if (isset($label))
         <label>{{ $label }}</label>

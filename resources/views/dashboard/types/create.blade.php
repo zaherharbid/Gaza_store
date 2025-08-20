@@ -19,7 +19,9 @@
                         <x-input name="name_ar" label='Arabic Name' placeholder="Enter Type Name" />
                     </div>
                 </div>
+
                 <x-input name="image" type='file' label='Image' />
+
                 <button class="btn btn-dark m-3"><i class="fas fa-save"></i> Save</button>
             </form>
         </div>
