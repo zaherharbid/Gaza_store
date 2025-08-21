@@ -29,7 +29,7 @@ return [
     'products_subtitle' => 'ماذا نقدم',
     'products_title' => 'المنتجات الخاصة بنا دائما مميزة',
     'products_desc' => 'المنتجات الخاصة بهذا النوع ',
-    'add_to_card' => 'أضف الى السلة',
+    'buy_now' => 'اشتري الأن ',
     'view_details' => 'عرض التفاصيل',
     'product_name' => 'اسم المنتج : ',
     'product_type' => 'نوع المنتج : ',
@@ -37,10 +37,9 @@ return [
     'product_description' => 'وصف المنتج : ',
     'product_share' => 'مشاركة عبر وسائل التواصل الاجتماعي : ',
     'ratings&views' => 'التقييمات والآراء',
-    'purchase_button' => 'اضف للسلة',
     'all_product' => 'جميع منتجاتنا',
     'view_all' => 'عرض الكل',
-    'best_seller' => 'المنتجات الأكثر مبيعا',
+    'recent_products' => 'أحدث المنتجات',
     'related' => 'منتجات ذات صلة',
     'why_are' => ' لماذا نحن خيارك الأفضل !؟',
     'diverse_products' => 'منتجات متنوعة',
@@ -56,7 +55,8 @@ return [
     'blogs' => 'الأخبار و المقالات',
     'blogs_title' => 'المقالات الخاصة بنا ',
     'blogs_desc' => 'استعد لموسم الصيف مع أحدث صيحات الموضة لعام 2025.',
-    'read_more' => 'قراءة المزيد ..'
+    'read_more' => 'قراءة المزيد ..',
+    'search_result' => ' نتائج البحث عن',
 
 
 

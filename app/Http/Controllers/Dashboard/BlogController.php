@@ -105,10 +105,4 @@ class BlogController extends Controller
             ->with('msg', 'Blog Deleted Successfully')
             ->with('type', 'danger');
     }
-    public function show($slug)
-    {
-        $blog = Blog::where('slug', $slug)->first();
-        $blogs = Blog::latest()->take(5)->get();
-        return view('front.blog-show', compact('blog', 'blogs'));
-    }
 }

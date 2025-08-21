@@ -213,7 +213,7 @@
     <!-- Best seller Products Carousel -->
     <section class="recent-products">
         <div class="section-header">
-            <h2 class="sec-title">{{ __('website.best_seller') }}</h2>
+            <h2 class="sec-title">{{ __('website.recent_products') }}</h2>
             <a href="#" class="view-all">{{ __('website.view_all') }}</a>
         </div>
         <div class="carousel-container" id="carousel">

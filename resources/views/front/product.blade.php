@@ -194,3 +194,77 @@
         </section>
     </main>
 @endsection --}}
+@extends('front.layout.master')
+
+@section('title', $product->trans_name . ' | ' . env('APP_NAME'))
+
+@section('css')
+    <style>
+        .del {
+            font-size: 20px;
+            text-decoration: line-through;
+            color: #717171
+        }
+    </style>
+@endsection
+
+@section('content')
+
+    <br>
+    <br>
+
+    <!-- About -->
+    <section class="about container" id="about">
+
+        <div class="about-img">
+            <img style="padding: 0 50px" src="{{ asset('storage/' . $product->image) }}" alt="">
+        </div>
+
+        <div class="about-text">
+            <span>{{ $product->type->trans_name }}</span>
+
+            <h2>{{ $product->trans_name }}</h2>
+            @if ($product->sale_price)
+                <h1><del class="del">${{ $product->price }}</del> ${{ $product->sale_price }}</h1>
+            @else
+                <h1>${{ $product->price }}</h1>
+            @endif
+
+            <p>{{ $product->trans_description }}</p>
+
+            <p><i class='bx bxs-star'></i> {{ number_format($product->reviews->avg('review'), 1) }}
+                ({{ $product->reviews->count() }} Reviews)</p>
+            <!-- About Button -->
+
+            @auth
+                <a href="/pay" class="btn pay-btn" data-id="{{ $product->id }}">{{ __('website.buy_now') }}</a>
+            @endauth
+
+            @guest
+                <a href="{{ route('login') }}" class="btn">{{ __('website.buy_now') }}</a>
+            @endguest
+
+        </div>
+    </section>
+
+    <!-- Parts Section -->
+    <section class="parts" id="parts">
+
+        <div class="heading">
+
+            <span>{{ $product->type->trans_name }}</span>
+
+            <h2>{{ __('website.related') }}</h2>
+        </div>
+        <!-- Parts Container -->
+
+        <div class="parts-container container">
+
+            @foreach ($related as $item)
+                @include('front.products.box', ['product' => $item])
+            @endforeach
+
+        </div>
+
+    </section>
+@endsection

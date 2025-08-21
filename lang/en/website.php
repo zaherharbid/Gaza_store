@@ -29,7 +29,7 @@ return [
     'products_subtitle' => 'What we offer',
     'products_title' => 'Our Products',
     'products_desc' => 'Products for this type',
-    'add_to_card' => 'Add To Cart',
+    'buy_now' => 'Buy Now',
     'view_details' => 'View Details',
     'product_name' => 'Product Name:',
     'product_type' => 'Product Type:',
@@ -37,10 +37,9 @@ return [
     'product_description' => 'Product Description:',
     'product_share' => 'Share with Social Media: ',
     'ratings&views' => 'Ratings & Reiews',
-    'purchase_button' => 'Add to Cart',
     'all_product' => 'All Product',
     'view_all' => 'View All',
-    'best_seller' => 'Best Seller Products',
+    'recent_products' => 'Recent Products',
     'related' => 'Related Products',
     'why_are' => 'Why are we the best choice !?',
     'diverse_products' => 'Diverse Products',
@@ -56,7 +55,8 @@ return [
     'blogs' => 'Blog & News',
     'blogs_title' => 'Our Blog Content',
     'blogs_desc' => 'Discover the Latest Fashion Trends of 2025',
-    'read_more' => 'Read More ..'
+    'read_more' => 'Read More ..',
+    'search_result' => 'Search Result For ',
 
 
 

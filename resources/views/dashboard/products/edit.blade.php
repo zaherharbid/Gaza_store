@@ -29,8 +29,16 @@
                 </div>
                 <x-input name="image" type='file' label='Image' />
 
-                <x-input type="number" name="price" label='Price' placeholder="Enter New Product Price"
-                    value="{{ $product->price }}" />
+                <div class="row">
+                    <div class="col-md-6">
+                        <x-input type="number" name="price" label='Price' placeholder="Enter New Product Price"
+                            value="{{ $product->price }}" />
+                    </div>
+                    <div class="col-md-6">
+                        <x-input type="number" name="sale_price" label='Sale Price'
+                            placeholder="Enter New Product Sale Price" value="{{ $product->sale_price }}" />
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-6">
                         <x-textarea name="description_en" label='English Description'

@@ -15,6 +15,7 @@ Route::prefix(LaravelLocalization::setLocale())->group(function () {
     Route::get('/product/{id}', [FrontController::class, 'product'])->name('front.product');
     Route::get('/category/{id}', [FrontController::class, 'category'])->name('front.category');
     Route::get('/blog/{blog:slug}', [FrontController::class, 'blog'])->name('front.blog');
+    Route::get('/search}', [FrontController::class, 'search'])->name('front.search');
 });
 
 Route::get('/dashboard', function () {

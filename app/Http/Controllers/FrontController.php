@@ -39,8 +39,17 @@ class FrontController extends Controller
     }
     function blog(Blog $blog)
     {
-        // $blog = Blog::where('slug', $slug)->firstOrFail();
-        return view('front.blog', compact('blog'));
+        $blogs = Blog::latest()->take(5)->get();
+        return view('front.blog', compact('blog', 'blogs'));
+    }
+    function search(Request $request)
+    {
+        $local = App::getLocale();
+        $products = Product::where("name->$local", 'like', '%' . $request->q . '%')
+            ->orWhere("description->$local", 'like', '%' . $request->q . '%')
+            ->get();
+
+        return view('front.search', compact('products'));
     }
 
     function category($id)

@@ -91,6 +91,7 @@ class ProductController extends Controller
                 'en' => $request->name_en,
             ],
             'price' => $request->price,
+            'sale_price' => $request->sale_price,
             'description' => [
                 'ar' => $request->description_ar,
                 'en' => $request->description_en,

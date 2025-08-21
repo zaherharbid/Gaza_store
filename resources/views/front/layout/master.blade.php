@@ -7,6 +7,7 @@
     <title>@yield('title', env('APP_NAME'))</title>
     <link rel="stylesheet" href="{{ asset('assets/css/Home.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/productPage.css') }}" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     @if (app()->getLocale() == 'ar')
         <style>
@@ -59,7 +60,7 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 230px;
+            width: 300px;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             position: relative;
             text-align: left;
@@ -72,7 +73,7 @@
 
         .product-card img {
             width: 100%;
-            height: 180px;
+            height: 300px;
             object-fit: cover;
             display: block;
             object-position: top;
@@ -340,6 +341,40 @@
             color: #2ecc71;
             border-color: #2ecc71;
         }
+
+        #search-icon {
+            font-size: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        #search-icon:hover {
+            color: #27ae60;
+        }
+
+        .search-box {
+            position: absolute;
+            top: 100px;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            padding: 15px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 1000;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .search-box.active {
+            display: block;
+        }
     </style>
 
 
@@ -371,7 +406,14 @@
                 </a>
             </div>
             <ul class="icon-list">
-                <li><a href="Search.html"><i class="fa-solid fa-search"></i></a></li>
+                <li class="search-wrapper">
+                    <i class="fa-solid fa-search" id="search-icon"></i>
+                    <div class="search-box">
+                        <form action="{{ route('front.search') }}" method="GET">
+                            <input type="search" name="q" placeholder="Search Here ..." />
+                        </form>
+                    </div>
+                </li>
                 <li><a href="Favorites.html"><i class="fa-regular fa-heart"></i></a></li>
                 <li><a href="Cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
                 <li><a href="profile.html"><i class="fa-regular fa-user"></i></a></li>
@@ -429,10 +471,16 @@
                 href="PrivacyPolicy.html">{{ __('website.footer.privacyPolicy') }}</a></p>
     </footer>
 
-
-
-    <script src="{{ asset('assets/js/Home.js') }}" defer></script>
     @yield('js')
+    <script>
+        document.getElementById('search-icon').addEventListener('click', function() {
+            const box = document.querySelector('.search-box');
+            box.classList.toggle('active');
+            if (box.classList.contains('active')) {
+                box.querySelector('input').focus();
+            }
+        });
+    </script>
 
 </body>
 

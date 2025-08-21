@@ -96,7 +96,7 @@
                 </section>
 
                 <div class="btn-div">
-                    <button class="add-to-cart">{{ __('website.purchase_button') }}</button>
+                    <button class="add-to-cart pay-btn">{{ __('website.buy_now') }}</button>
                     <a href="#" style="color: black;"><i class="fa-regular fa-heart btn-icon"></i></a>
                 </div>
             </div>
