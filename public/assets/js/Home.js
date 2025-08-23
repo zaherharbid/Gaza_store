@@ -17,56 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-const categories = [
-    {
-        name: "Shirts",
-        desc: "Dress Shirts, Polo Shirts, Casual Shirts",
-        bgColor: "#ffe5e5",
-    },
-    { name: "Pants", desc: "Jeans, Chinos, Dress Pants", bgColor: "#e0e7ff" },
-    {
-        name: "Jackets",
-        desc: "Leather Jackets, Denim Jackets",
-        bgColor: "#e0f7fa",
-    },
-    { name: "T-Shirts", desc: "Graphic Tees, Plain Tees", bgColor: "#fff3e0" },
-    {
-        name: "Suits",
-        desc: "Two-Piece Suit, Three-Piece Suit",
-        bgColor: "#ede7f6",
-    },
-    { name: "Shoes", desc: "Dress Shoes, Casual Shoes", bgColor: "#f3e5f5" },
-    { name: "Accessory", desc: "Watches, Belts, Hats", bgColor: "#fbe9e7" },
-    {
-        name: "Sportswear",
-        desc: "Athletic Shorts, Track Pants",
-        bgColor: "#f1f8e9",
-    },
-    { name: "Outerwear", desc: "Coats, Jackets, Parkas", bgColor: "#e8f5e9" },
-    {
-        name: "Loungewear",
-        desc: "Sweatpants, Robes, Pajamas",
-        bgColor: "#fce4ec",
-    },
-    { name: "Underwear", desc: "Boxers, Briefs, Trunks", bgColor: "#e0f2f1" },
-    { name: "Nightwear", desc: "Pajama Sets, Nightgowns", bgColor: "#edeef0" },
-];
-
-const catGrid = document.getElementById("catGrid");
-catGrid.innerHTML = categories
-    .map(
-        (c) => `
-  <a href="CategoryPage.html?id=${c.id}" class="category-link" style="text-decoration: none;">
-    <div class="category-box" style="background:${c.bgColor}; cursor: pointer;">
-      <h4>${c.name}</h4>
-      <p>${c.desc}</p>
-    </div>
-  </a>
-`
-    )
-    .join("");
-
-// تفعيل القلب (من القسم السابق)
 document.addEventListener("DOMContentLoaded", () => {
     const favButtons = document.querySelectorAll(".fav-btn");
 
@@ -115,9 +65,69 @@ document.addEventListener("DOMContentLoaded", () => {
         carousel.scrollLeft = scrollLeft - walk;
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const search = document.querySelector(".search-box");
+    const menu = document.querySelector(".navbar");
+    const searchIcon = document.querySelector("#search-icon");
+    const menuIcon = document.querySelector("#menu-icon");
 
-//payment process
+    if (searchIcon && search && menu) {
+        searchIcon.onclick = () => {
+            search.classList.toggle("active");
+            menu.classList.remove("active");
+            search.querySelector("input")?.focus();
+        };
+    }
+
+    if (menuIcon && menu && search) {
+        menuIcon.onclick = () => {
+            menu.classList.toggle("active");
+            search.classList.remove("active");
+        };
+    }
+
+    // Hide Menu And Search Box On Scroll
+    window.onscroll = () => {
+        if (menu) menu.classList.remove("active");
+        if (search) search.classList.remove("active");
+    };
+});
+
+// Header
+
+let header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+    header.classList.toggle("shadow", window.scrollY > 0);
+});
+
 let payment_btns = document.querySelectorAll(".pay-btn");
 payment_btns.forEach((btn) => {
-    console.log(btn.dataset.id);
+    btn.onclick = (e) => {
+        e.preventDefault();
+
+        let product_id = btn.dataset.id;
+        btn.classList.add("disabled");
+        btn.innerHTML = "Proccessing ..";
+        const csrfToken = document.head.querySelector(
+            "[name~=csrf-token][content]"
+        ).content;
+
+        fetch("/pay", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": csrfToken,
+            },
+            body: JSON.stringify({
+                product_id: product_id,
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                stripe.redirectToCheckout({
+                    sessionId: data.session_id,
+                });
+            });
+    };
 });

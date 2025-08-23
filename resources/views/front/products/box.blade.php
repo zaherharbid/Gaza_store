@@ -19,8 +19,18 @@
            </div>
 
            <div class="card-actions">
-               <a href="#" class="add-to-cart pay-btn"
-                   data-id="{{ $product->id }}">{{ __('website.buy_now') }}</a>
+               <div>
+                   @auth
+                       <a href="/pay" class="add-to-cart pay-btn" data-id="{{ $product->id }}">
+                           {{ __('website.buy_now') }}
+                       </a>
+                   @endauth
+                   @guest
+                       <a href="{{ route('login') }}" class="add-to-cart">
+                           {{ __('website.buy_now') }}
+                       </a>
+                   @endguest
+               </div>
                <a class="view-details"
                    href="{{ route('front.product', $product->id) }}">{{ __('website.view_details') }}</a>
            </div>

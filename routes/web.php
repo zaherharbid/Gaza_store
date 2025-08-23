@@ -7,6 +7,7 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Dashboard\BlogController;
 use App\Http\Controllers\Dashboard\ProductController;
+use App\Http\Controllers\PaymentController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::prefix(LaravelLocalization::setLocale())->group(function () {
@@ -15,7 +16,19 @@ Route::prefix(LaravelLocalization::setLocale())->group(function () {
     Route::get('/product/{id}', [FrontController::class, 'product'])->name('front.product');
     Route::get('/category/{id}', [FrontController::class, 'category'])->name('front.category');
     Route::get('/blog/{blog:slug}', [FrontController::class, 'blog'])->name('front.blog');
-    Route::get('/search}', [FrontController::class, 'search'])->name('front.search');
+    Route::get('/search', [FrontController::class, 'search'])->name('front.search');
+    Route::get('/terms', function () {
+        return view('front.terms');
+    })->name('front.terms');
+    Route::get('/privacy', function () {
+        return view('front.privacy');
+    })->name('front.privacy');
+    //payment routes
+    Route::middleware('auth')->group(function () {
+        Route::post('/pay', [PaymentController::class, 'payment'])->name('front.pay');
+        Route::get('/success', [PaymentController::class, 'success'])->name('front.success');
+        Route::get('/cancel', [PaymentController::class, 'cancel'])->name('front.cancel');
+    });
 });
 
 Route::get('/dashboard', function () {

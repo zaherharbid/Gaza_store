@@ -105,7 +105,7 @@
     <hr class="sidebar-divider my-0">
     <!-- Nav Item - Payments -->
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('dashboard') }}">
+        <a class="nav-link" href="{{ route('dashboard.payments') }}">
             <i class="fas fa-fw fa-credit-card"></i>
             <span>Payments</span></a>
     </li>

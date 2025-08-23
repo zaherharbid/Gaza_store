@@ -244,6 +244,8 @@
     <script src="{{ asset('adminassets/js/sb-admin-2.min.js') }}"></script>
     @yield('js')
 
+
+
 </body>
 
 </html>

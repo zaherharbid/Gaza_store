@@ -21,5 +21,7 @@ Route::prefix(LaravelLocalization::setLocale())->group(function () {
 
         Route::get('settings', [DashboardController::class, 'settings'])->name('settings');
         Route::put('settings', [DashboardController::class, 'settings_update'])->name('settings.update');
+        Route::get('payments', [DashboardController::class, 'payments'])->name('payments');
+        Route::get('payments/{id}', [DashboardController::class, 'payments_details'])->name('payments_details');
     });
 });
